@@ -1,0 +1,2 @@
+      <div class="logo-main">Khorezmshakh</div>
+                        <div class="logo-sub">Academy</div>

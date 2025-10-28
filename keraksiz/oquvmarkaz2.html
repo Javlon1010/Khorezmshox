@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khorezmshakh Academy - Sifatli Ta'lim</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Asosiy uslublar */
+        :root {
+            --primary: #1a7c25; /* Logo rangiga mos - to'q ko'k */
+            --secondary: #1a7c25; /* Logo rangiga mos - oltin */
+            --accent: #c0392b;
+            --light: #f5f7fa;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+            transition: var(--transition);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-telegram {
+            background: #0088cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-telegram:hover {
+            background: #0077b5;
+            color: white;
+        }
+        
+        /* Sarlavha va Navigatsiya */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+        
+        .logo-sub {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero bo'limi */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Kurslar bo'limi */
+        .courses {
+            background: var(--light);
+        }
+        
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .course-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-top-color: var(--secondary);
+        }
+        
+        .course-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .course-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .course-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Kurslar filtri */
+        .courses-filter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Afzalliklar bo'limi */
+        .benefits-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+        
+        .benefits-content.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .benefits-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .benefits-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .benefits-text {
+            flex: 1;
+        }
+        
+        .benefits-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .benefits-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .benefit-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .benefit-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .benefit-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* O'qituvchilar bo'limi */
+        .teachers {
+            background: var(--light);
+        }
+        
+        .teachers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .teacher-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .teacher-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .teacher-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .teacher-info {
+            padding: 20px;
+        }
+        
+        .teacher-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .teacher-info p {
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        /* Statistika bo'limi */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .stat-item.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+        }
+        
+        /* Narxlar bo'limi */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .pricing-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            text-align: left;
+        }
+        
+        .pricing-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* Telegram ro'yxatdan o'tish bo'limi */
+        .telegram-registration {
+            background: var(--light);
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .telegram-content {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .telegram-content.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .telegram-icon {
+            font-size: 4rem;
+            color: #0088cc;
+            margin-bottom: 20px;
+        }
+        
+        .telegram-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .telegram-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo-main {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .footer-logo-sub {
+            font-size: 1rem;
+            color: var(--secondary);
+        }
+        
+        .footer-links h4, .footer-social h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-links h4::after, .footer-social h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Yuklash animatsiyasi */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Muvaffaqiyat modali */
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .success-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: scale(0.9);
+            transition: all 0.3s ease;
+        }
+        
+        .success-modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+        }
+        
+        .modal-btn {
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        /* Tema almashish tugmasi */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(0,0,0,0.05);
+        }
+        
+        /* Dark tema */
+        .dark-theme {
+            --light: #2c3e50;
+            --dark: #ecf0f1;
+            --text: #ecf0f1;
+            --text-light: #bdc3c7;
+            background-color: #1a2530;
+            color: var(--text);
+        }
+        
+        .dark-theme header {
+            background: #2c3e50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .dark-theme .course-card,
+        .dark-theme .teacher-card,
+        .dark-theme .pricing-card {
+            background: #34495e;
+            color: var(--text);
+        }
+        
+        .dark-theme .form-control {
+            background: #2c3e50;
+            border-color: #4a5f7a;
+            color: var(--text);
+        }
+        
+        .dark-theme .filter-btn {
+            background: #34495e;
+            color: var(--text);
+        }
+        
+        .dark-theme .filter-btn.active,
+        .dark-theme .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .dark-theme .courses,
+        .dark-theme .teachers {
+            background: #2c3e50;
+        }
+        
+        /* Responsiv uslublar */
+        @media (max-width: 992px) {
+            .benefits-content {
+                flex-direction: column;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-btns .btn {
+                width: 200px;
+                margin-bottom: 10px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+            
+            .courses-filter {
+                gap: 5px;
+            }
+            
+            .filter-btn {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .theme-toggle {
+                margin-left: 10px;
+                padding: 5px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .course-content h3,
+            .teacher-info h3,
+            .pricing-header h3 {
+                font-size: 1.2rem;
+            }
+            
+            .benefits-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            .telegram-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sarlavha va Navigatsiya -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo-container">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjMUExQzNBIi8+CjxwYXRoIGQ9Ik0xMi41IDEyLjVIMzcuNVYzNy41SDEyLjVWMTIuNVoiIGZpbGw9IiNENEFGMzciLz4KPHN2ZyB4PSIxNSIgeT0iMTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIiBmaWxsPSJub25lIj4KPHBhdGggZD0iTTEwIDBMMTMuMDkgNi44M0wyMCA3LjYzOEwxNSAxMi43N0wxNi4xOCAyMEwxMCAxNi44M0wzLjgyIDIwTDUgMTIuNzJMMCA3LjYzOEw2LjkxIDYuODNMMTAgMFoiIGZpbGw9IiMxQTFDM0EiLz4KPC9zdmc+Cjwvc3ZnPgo=" alt="Khorezmshakh Academy Logo" class="logo-img">
+                    <div class="logo-text">
+                        <div class="logo-main">Khorezmshakh</div>
+                        <div class="logo-sub">Academy</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Bosh sahifa</a></li>
+                    <li><a href="#courses">Kurslar</a></li>
+                    <li><a href="#benefits">Afzalliklar</a></li>
+                    <li><a href="#teachers">O'qituvchilar</a></li>
+                    <li><a href="#pricing">Narxlar</a></li>
+                    <li><a href="#registration">Ro'yxatdan o'tish</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero bo'limi -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Khorezmshakh Academy O'quv Markaziga Xush Kelibsiz!</h1>
+                <p>Biz sizga sifatli ta'lim va zamonaviy bilimlarni egallash imkoniyatini taqdim etamiz. Kelajagingizni biz bilan quring!</p>
+                <div class="hero-btns">
+                    <a href="#courses" class="btn">Kurslarni ko'rish</a>
+                    <a href="#registration" class="btn btn-outline">Ro'yxatdan o'tish</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kurslar bo'limi -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bizning Kurslar</h2>
+            </div>
+            
+            <!-- Kurslar filtri -->
+            <div class="courses-filter">
+                <button class="filter-btn active" data-filter="all">Barchasi</button>
+                <button class="filter-btn" data-filter="programming">Dasturlash</button>
+                <button class="filter-btn" data-filter="language">Tillar</button>
+                <button class="filter-btn" data-filter="science">Fanlar</button>
+            </div>
+            
+            <div class="courses-container">
+                <div class="course-card" data-category="programming">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dasturlash kursi" class="course-img">
+                    <div class="course-content">
+                        <h3>Dasturlash Asoslari</h3>
+                        <p>Python, JavaScript va boshqa zamonaviy dasturlash tillarini o'rganing. Noldan boshlab professional darajagacha.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 3 oy</span>
+                            <span><i class="far fa-user"></i> 15 o'quvchi</span>
+                        </div>
+                        <div class="course-price">600,000 so'm/oy</div>
+                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                    </div>
+                </div>
+                <div class="course-card" data-category="language">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ingliz tili kursi" class="course-img">
+                    <div class="course-content">
+                        <h3>Ingliz Tili</h3>
+                        <p>Boshlang'ichdan ilg'or darajagacha ingliz tilini o'rganing. IELTS va TOEFL tayyorgarligi.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 6 oy</span>
+                            <span><i class="far fa-user"></i> 12 o'quvchi</span>
+                        </div>
+                        <div class="course-price">400,000 so'm/oy</div>
+                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                    </div>
+                </div>
+                <div class="course-card" data-category="science">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Matematika kursi" class="course-img">
+                    <div class="course-content">
+                        <h3>Matematika</h3>
+                        <p>Maktab va universitet dasturlari bo'yicha matematikani chuqur o'rganing. Test tayyorgarligi.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 4 oy</span>
+                            <span><i class="far fa-user"></i> 10 o'quvchi</span>
+                        </div>
+                        <div class="course-price">350,000 so'm/oy</div>
+                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                    </div>
+                </div>
+                <div class="course-card" data-category="programming">
+                    <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Web Dasturlash" class="course-img">
+                    <div class="course-content">
+                        <h3>Web Dasturlash</h3>
+                        <p>HTML, CSS, JavaScript va modern frameworklardan foydalangan holda web saytlar yaratishni o'rganing.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 4 oy</span>
+                            <span><i class="far fa-user"></i> 12 o'quvchi</span>
+                        </div>
+                        <div class="course-price">550,000 so'm/oy</div>
+                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                    </div>
+                </div>
+                <div class="course-card" data-category="language">
+                    <img src="https://images.unsplash.com/photo-1529255484355-cb73c33c04bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Rus tili kursi" class="course-img">
+                    <div class="course-content">
+                        <h3>Rus Tili</h3>
+                        <p>Boshlang'ichdan ilg'or darajagacha rus tilini o'rganing. Ish va o'qish imkoniyatlari uchun.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 5 oy</span>
+                            <span><i class="far fa-user"></i> 10 o'quvchi</span>
+                        </div>
+                        <div class="course-price">300,000 so'm/oy</div>
+                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                    </div>
+                </div>
+                <div class="course-card" data-category="science">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Fizika kursi" class="course-img">
+                    <div class="course-content">
+                        <h3>Fizika</h3>
+                        <p>Maktab va universitet dasturlari bo'yicha fizikani chuqur o'rganing. Test tayyorgarligi.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 4 oy</span>
+                            <span><i class="far fa-user"></i> 8 o'quvchi</span>
+                        </div>
+                        <div class="course-price">350,000 so'm/oy</div>
+                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Afzalliklar bo'limi -->
+    <section id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nima uchun aynan Biz?</h2>
+            </div>
+            <div class="benefits-content">
+                <div class="benefits-img">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="O'quv markazi">
+                </div>
+                <div class="benefits-text">
+                    <h3>Bizning O'quv Markazimizning Afzalliklari</h3>
+                    <p>Biz har bir o'quvchining ehtiyojlariga moslashtirilgan ta'lim olish huquqiga ega ekanligiga ishonamiz.</p>
+                    
+                    <ul class="benefit-list">
+                        <li>Tajribali va malakali o'qituvchilar</li>
+                        <li>Zamonaviy o'quv dasturlari va uslublari</li>
+                        <li>Kichik guruhlarda individual yondashuv</li>
+                        <li>Qulay o'quv jarayoni monitoringi</li>
+                        <li>Zamonaviy o'quv xonalari va resurslari</li>
+                        <li>Amaliy mashg'ulotlar va loyihalar</li>
+                        <li>O'quv materiallari va qo'llanmalar</li>
+                        <li>Muvaffaqiyat sertifikatlari</li>
+                    </ul>
+                    
+                    <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O'qituvchilar bo'limi -->
+    <section class="teachers" id="teachers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bizning O'qituvchilar</h2>
+            </div>
+            <div class="teachers-container">
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="O'qituvchi" class="teacher-img">
+                    <div class="teacher-info">
+                        <h3>Aziza Alimova</h3>
+                        <p>Dasturlash bo'yicha o'qituvchi</p>
+                        <p>5 yillik tajriba</p>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1544717392-2077f5a37e14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="O'qituvchi" class="teacher-img">
+                    <div class="teacher-info">
+                        <h3>Dilshod Rahimov</h3>
+                        <p>Ingliz tili o'qituvchisi</p>
+                        <p>7 yillik tajriba</p>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="O'qituvchi" class="teacher-img">
+                    <div class="teacher-info">
+                        <h3>Sanjar Ismoilov</h3>
+                        <p>Matematika o'qituvchisi</p>
+                        <p>8 yillik tajriba</p>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="O'qituvchi" class="teacher-img">
+                    <div class="teacher-info">
+                        <h3>Madina Qodirova</h3>
+                        <p>Rus tili o'qituvchisi</p>
+                        <p>6 yillik tajriba</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistika bo'limi -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-text">Bitiruvchilar</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-text">Kurslar</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-text">O'qituvchilar</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-text">Mamnun mijozlar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narxlar bo'limi -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kurs Narxlari</h2>
+            </div>
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Standart</h3>
+                        <p>Guruhda o'qish</p>
+                    </div>
+                    <div class="price">350,000 <span>so'm/oy</span></div>
+                    <ul class="pricing-features">
+                        <li>Haftada 3 marta dars</li>
+                        <li>2 soatlik darslar</li>
+                        <li>10-15 kishilik guruh</li>
+                        <li>O'quv materiallari</li>
+                        <li>Varaqa va testlar</li>
+                    </ul>
+                    <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Eng mashhur</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <p>Kichik guruh</p>
+                    </div>
+                    <div class="price">500,000 <span>so'm/oy</span></div>
+                    <ul class="pricing-features">
+                        <li>Haftada 4 marta dars</li>
+                        <li>2 soatlik darslar</li>
+                        <li>5-8 kishilik guruh</li>
+                        <li>O'quv materiallari</li>
+                        <li>Varaqa va testlar</li>
+                        <li>Qo'shimcha mashg'ulotlar</li>
+                        <li>Shaxsiy maslahat</li>
+                    </ul>
+                    <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>VIP</h3>
+                        <p>Shaxsiy dars</p>
+                    </div>
+                    <div class="price">800,000 <span>so'm/oy</span></div>
+                    <ul class="pricing-features">
+                        <li>Dars jadvalini o'zingiz belgilaysiz</li>
+                        <li>1-1 shaxsiy darslar</li>
+                        <li>2 soatlik darslar</li>
+                        <li>O'quv materiallari</li>
+                        <li>Varaqa va testlar</li>
+                        <li>Qo'shimcha mashg'ulotlar</li>
+                        <li>Doimiy maslahat</li>
+                        <li>Uyda qo'shimcha vazifalar</li>
+                    </ul>
+                    <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telegram orqali ro'yxatdan o'tish bo'limi -->
+    <section class="telegram-registration" id="registration">
+        <div class="container">
+            <div class="telegram-content">
+                <div class="telegram-icon">
+                    <i class="fab fa-telegram"></i>
+                </div>
+                <h2>Telegram orqali ro'yxatdan o'ting</h2>
+                <p>Bizning Telegram botimiz orqali tez va oson ro'yxatdan o'ting. Bot sizga kerakli ma'lumotlarni yozishingizda yordam beradi va ma'lumotlar bizga avtomatik yetib boradi.</p>
+                <a href="https://t.me/khorezmshakh_academy_bot" class="btn btn-telegram" target="_blank">
+                    <i class="fab fa-telegram"></i> Telegram botga o'tish
+                </a>
+                <p style="margin-top: 20px; font-size: 0.9rem;">Agar sizda Telegram bo'lmasa, quyidagi ma'lumotlar orqali biz bilan bog'lanishingiz mumkin</p>
+                <div style="margin-top: 20px; text-align: left; display: inline-block;">
+                    <p><i class="fas fa-phone"></i> +998 90 123 45 67</p>
+                    <p><i class="fab fa-telegram"></i> @khorezmshakh_academy</p>
+                    <p><i class="fas fa-envelope"></i> info@khorezmshakh.uz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="footer-logo-main">Khorezmshakh</div>
+                        <div class="footer-logo-sub">Academy</div>
+                    </div>
+                    <p>Bizning maqsadimiz - har bir o'quvchiga sifatli ta'lim va yorqin kelajak imkoniyatini yaratish.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Tezkor havolalar</h4>
+                    <ul>
+                        <li><a href="#home">Bosh sahifa</a></li>
+                        <li><a href="#courses">Kurslar</a></li>
+                        <li><a href="#benefits">Afzalliklar</a></li>
+                        <li><a href="#teachers">O'qituvchilar</a></li>
+                        <li><a href="#pricing">Narxlar</a></li>
+                        <li><a href="#registration">Ro'yxatdan o'tish</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Ijtimoiy tarmoqlar</h4>
+                    <div class="social-icons">
+                        <a href="https://t.me/khorezmshakh_academy" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Khorezmshakh Academy. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Muvaffaqiyat modali -->
+    <div class="success-modal" id="successModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-icon">✓</div>
+            <h3 id="modalTitle">Tabriklaymiz!</h3>
+            <p id="modalMessage">Savolingiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog'lanamiz.</p>
+            <button class="btn modal-btn">Yakunlash</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobil menyu boshqaruvi
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Navigatsiya havolalari uchun silliq skroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Mobil menyu ochiq bo'lsa yopish
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Kurslarni filtrlash funksiyasi
+        function filterCourses(category) {
+            const courseCards = document.querySelectorAll('.course-card');
+            
+            courseCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Scroll animatsiyalari
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Kuzatishni boshlash
+            document.querySelectorAll('.course-card, .teacher-card, .pricing-card, .benefits-content, .stat-item, .telegram-content').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Dark/Light mode
+        function initThemeToggle() {
+            const themeToggle = document.createElement('button');
+            themeToggle.className = 'theme-toggle';
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            themeToggle.title = 'Tema almashish';
+            
+            document.querySelector('.navbar').appendChild(themeToggle);
+            
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                if (document.body.classList.contains('dark-theme')) {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+            
+            // Saqlangan temani yuklash
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        }
+
+        // Muvaffaqiyat modali
+        function showSuccessModal(name) {
+            const modal = document.getElementById('successModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            
+            modalTitle.textContent = `Tabriklaymiz, ${name}!`;
+            modalMessage.textContent = 'Savolingiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog\'lanamiz.';
+            
+            modal.classList.add('active');
+            
+            // Modalni yopish
+            modal.querySelector('.close-modal').addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+            
+            modal.querySelector('.modal-btn').addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+            
+            // Tashqariga bosganda yopish
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+
+        // Sahifa yuklanganda bajariladigan funksiyalar
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+            initThemeToggle();
+            
+            // Kurslar filtri
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            if (filterButtons.length) {
+                filterButtons.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        filterButtons.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        filterCourses(this.dataset.filter);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

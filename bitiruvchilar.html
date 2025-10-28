@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizning Bitiruvchilarimiz - Khorezmshakh Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Asosiy uslublar */
+        :root {
+            --primary: #1a7c25; /* To'q yashil rang */
+            --secondary: #d4af37;
+            --accent: #c0392b;
+            --success: #27ae60;
+            --light: #f5f7fa;
+            --dark: #2d3436;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 15px 40px rgba(0,0,0,0.15);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, #2e7d32 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+            transition: var(--transition);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Sarlavha va Navigatsiya */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        
+        .logo-sub {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Filter tugmalari */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+        }
+        
+        /* Bitiruvchilar qutisi */
+        .graduates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .graduate-box {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--primary);
+        }
+        
+        .graduate-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .graduate-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .graduate-info {
+            padding: 25px;
+        }
+        
+        .graduate-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .graduate-info p {
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .graduate-achievement {
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        /* Bo'limlar */
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        /* Back to home button */
+        .back-home {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo-main {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .footer-logo-sub {
+            font-size: 1rem;
+            color: var(--secondary);
+        }
+        
+        .footer-links h4, .footer-social h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-links h4::after, .footer-social h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsiv uslublar */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .filter-buttons {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .graduates-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sarlavha va Navigatsiya -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="xorazmshox.html" class="logo-container">
+                    <div class="logo-text">
+                        <div class="logo-main">Khorezmshakh</div>
+                        <div class="logo-sub">Academy</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="xorazmshox.html#home">Bosh sahifa</a></li>
+                    <li><a href="xorazmshox.html#courses">Kurslar</a></li>
+                    <li><a href="xorazmshox.html#benefits">Afzalliklar</a></li>
+                    <li><a href="xorazmshox.html#graduates">Bitiruvchilar</a></li>
+                    <li><a href="xorazmshox.html#pricing">Narxlar</a></li>
+                    <li><a href="xorazmshox.html#registration">Ro'yxatdan o'tish</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero bo'limi -->
+    <section style="padding: 150px 0 80px; background: var(--gradient); color: white; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 20px;">Bizning Bitiruvchilarimiz</h1>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">Muvaffaqiyatli bitiruvchilarimiz bilan tanishing</p>
+        </div>
+    </section>
+
+    <!-- Filter tugmalari -->
+    <section style="padding: 50px 0 20px;">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-target="harbiy">Harbiy Litsey Bitiruvchilari</button>
+                <button class="filter-btn" data-target="milliy">Milliy Litsey Bitiruvchilari</button>
+                <button class="filter-btn" data-target="prezident">Prezident Maktabi Bitiruvchilari</button>
+                <button class="filter-btn" data-target="xalqaro">Xalqaro Universitetlar Bitiruvchilari</button>
+                <button class="filter-btn" data-target="davlat">Davlat Universitetlari Bitiruvchilari</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Harbiy Litsey Bitiruvchilari -->
+    <section id="harbiy" class="section active">
+        <div class="container">
+            <div class="section-title">
+                <h2>Harbiy Litsey Bitiruvchilari</h2>
+                <p>Harbiy litseylarga kirishga muvaffaq bo'lgan o'quvchilarimiz</p>
+            </div>
+            <div class="graduates-container">
+                <!-- 1-bitiruvchi -->
+                <div class="graduate-box">
+                    <img src="photo_1_2025-10-25_01-48-39.jpg" alt="Javohir Karimov" class="graduate-img">
+                    <div class="graduate-info">
+                        <h3>Javohir Karimov</h3>
+                        <p><strong>O'qigan joyi:</strong> Ichki Ishlar Akademiyasi Litseyi</p>
+                        <p><strong>Kurs:</strong> Matematika, Ingliz tili</p>
+                        <p><strong>Natija:</strong> 80 ball</p>
+                        <span class="graduate-achievement">Muvaffaqiyatli</span>
+                    </div>
+                </div>
+                
+                <!-- 2-bitiruvchi -->
+                <div class="graduate-box">
+                    <img src="photo_2_2025-10-25_01-48-39.jpg" alt="Axmed Xolmatov" class="graduate-img">
+                    <div class="graduate-info">
+                        <h3>Axmed Xolmatov</h3>
+                        <p><strong>O'qigan joyi:</strong> Ichki Ishlar Akademiyasi Litseyi</p>
+                        <p><strong>Kurs:</strong> Ingliz tili, Matematika</p>
+                        <p><strong>Natija:</strong> IELTS 7.5 ball</p>
+                        <span class="graduate-achievement">A'lo</span>
+                    </div>
+                </div>
+                
+                <!-- 3-bitiruvchi -->
+                <div class="graduate-box">
+                    <img src="photo_3_2025-10-25_01-48-39.jpg" alt="Shoxrux Ismoilov" class="graduate-img">
+                    <div class="graduate-info">
+                        <h3>Shoxrux Ismoilov</h3>
+                        <p><strong>O'qigan joyi:</strong> Ichki Ishlar Akademiyasi Litseyi</p>
+                        <p><strong>Kurs:</strong> Tarix, Matematika</p>
+                        <p><strong>Natija:</strong> 90 ball</p>
+                        <span class="graduate-achievement">A'lo</span>
+                    </div>
+                </div>
+                
+                <!-- 4-bitiruvchi -->
+                <div class="graduate-box">
+                    <img src="photo_4_2025-10-25_01-48-39.jpg" alt="Jamshid Qodirov" class="graduate-img">
+                    <div class="graduate-info">
+                        <h3>Jamshid Qodirov</h3>
+                        <p><strong>O'qigan joyi:</strong> Ichki Ishlar Akademiyasi Litseyi</p>
+                        <p><strong>Kurs:</strong> Ingliz tili, Tarix</p>
+                        <p><strong>Natija:</strong> 65 ball</p>
+                        <span class="graduate-achievement">Yaxshi</span>
+                    </div>
+                </div>
+                
+                <!-- 5-bitiruvchi -->
+                <div class="graduate-box">
+                    <img src="photo_5_2025-10-25_01-48-39.jpg" alt="Madina Qodirova" class="graduate-img">
+                    <div class="graduate-info">
+                        <h3>Madina Qodirova</h3>
+                        <p><strong>O'qigan joyi:</strong> Ichki Ishlar Akademiyasi Litseyi</p>
+                        <p><strong>Kurs:</strong> Matematika, Ingliz tili</p>
+                        <p><strong>Natija:</strong> 78 ball</p>
+                        <span class="graduate-achievement">Muvaffaqiyatli</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milliy Litsey Bitiruvchilari -->
+    <section id="milliy" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Milliy Litsey Bitiruvchilari</h2>
+                <p>Milliy litseylarga kirishga muvaffaq bo'lgan o'quvchilarimiz</p>
+            </div>
+            <div class="graduates-container">
+                <!-- Bu bo'limga 5 ta bitiruvchi qo'shishingiz mumkin -->
+                <div class="graduate-box">
+                    <div class="graduate-info" style="text-align: center; padding: 50px;">
+                        <h3>Ma'lumotlar tez orada qo'shiladi</h3>
+                        <p>Milliy litsey bitiruvchilari ma'lumotlari yangilanmoqda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prezident Maktabi Bitiruvchilari -->
+    <section id="prezident" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Prezident Maktabi Bitiruvchilari</h2>
+                <p>Prezident maktablariga kirishga muvaffaq bo'lgan o'quvchilarimiz</p>
+            </div>
+            <div class="graduates-container">
+                <!-- Bu bo'limga 5 ta bitiruvchi qo'shishingiz mumkin -->
+                <div class="graduate-box">
+                    <div class="graduate-info" style="text-align: center; padding: 50px;">
+                        <h3>Ma'lumotlar tez orada qo'shiladi</h3>
+                        <p>Prezident maktabi bitiruvchilari ma'lumotlari yangilanmoqda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Xalqaro Universitetlar Bitiruvchilari -->
+    <section id="xalqaro" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Xalqaro Universitetlar Bitiruvchilari</h2>
+                <p>Xalqaro universitetlarga kirishga muvaffaq bo'lgan o'quvchilarimiz</p>
+            </div>
+            <div class="graduates-container">
+                <!-- Bu bo'limga 5 ta bitiruvchi qo'shishingiz mumkin -->
+                <div class="graduate-box">
+                    <div class="graduate-info" style="text-align: center; padding: 50px;">
+                        <h3>Ma'lumotlar tez orada qo'shiladi</h3>
+                        <p>Xalqaro universitetlar bitiruvchilari ma'lumotlari yangilanmoqda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Davlat Universitetlari Bitiruvchilari -->
+    <section id="davlat" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Davlat Universitetlari Bitiruvchilari</h2>
+                <p>Davlat universitetlariga kirishga muvaffaq bo'lgan o'quvchilarimiz</p>
+            </div>
+            <div class="graduates-container">
+                <!-- Bu bo'limga 5 ta bitiruvchi qo'shishingiz mumkin -->
+                <div class="graduate-box">
+                    <div class="graduate-info" style="text-align: center; padding: 50px;">
+                        <h3>Ma'lumotlar tez orada qo'shiladi</h3>
+                        <p>Davlat universitetlari bitiruvchilari ma'lumotlari yangilanmoqda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asosiy sahifaga qaytish -->
+    <section style="padding: 50px 0;">
+        <div class="container">
+            <div class="back-home">
+                <a href="xorazmshox.html" class="btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Asosiy Sahifaga Qaytish
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="footer-logo-main">Khorezmshakh</div>
+                        <div class="footer-logo-sub">Academy</div>
+                    </div>
+                    <p>Bizning maqsadimiz - har bir o'quvchiga sifatli ta'lim va yorqin kelajak imkoniyatini yaratish.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Tezkor havolalar</h4>
+                    <ul>
+                        <li><a href="xorazmshox.html#home">Bosh sahifa</a></li>
+                        <li><a href="xorazmshox.html#courses">Kurslar</a></li>
+                        <li><a href="xorazmshox.html#benefits">Afzalliklar</a></li>
+                        <li><a href="xorazmshox.html#graduates">Bitiruvchilar</a></li>
+                        <li><a href="xorazmshox.html#pricing">Narxlar</a></li>
+                        <li><a href="xorazmshox.html#registration">Ro'yxatdan o'tish</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Ijtimoiy tarmoqlar</h4>
+                    <div class="social-icons">
+                        <a href="https://t.me/khorezmshakh_academy" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.instagram.com/khorezmshah_academy?igsh=bWJ4M3NtcG9oOW1n" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Khorezmshakh Academy. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobil menyu boshqaruvi
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Filter tugmalari boshqaruvi
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Barcha tugmalardan active klassini olib tashlash
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                
+                // Bosilgan tugmaga active klassini qo'shish
+                this.classList.add('active');
+                
+                // Barcha bo'limlarni yashirish
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Tanlangan bo'limni ko'rsatish
+                const targetId = this.dataset.target;
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // Navigatsiya havolalari uchun silliq skroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Mobil menyu ochiq bo'lsa yopish
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
