@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'qitiladigan Fanlar - Khorezmshakh Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .subjects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .subject-category {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--primary);
+        }
+
+        .subject-category h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .subject-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .subject-item {
+            padding: 12px 20px;
+            background: var(--light);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            font-weight: 500;
+        }
+
+        .education-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .education-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .education-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .required-subjects h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .required-subjects ul {
+            list-style: none;
+        }
+
+        .required-subjects li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .required-subjects li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo-container">
+                    <div class="logo-text">
+                        <div class="logo-main">Khorezmshakh</div>
+                        <div class="logo-sub">Academy</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Bosh sahifa</a></li>
+                    <li><a href="index.html#branches">Filiallar</a></li>
+                    <li><a href="index.html#courses">Kurslar</a></li>
+                    <li><a href="index.html#benefits">Afzalliklar</a></li>
+                    <li><a href="index.html#graduates">Bitiruvchilar</a></li>
+                    <li><a href="index.html#pricing">Yo'nalishlar</a></li>
+                    <li><a href="index.html#registration">Ro'yxatdan o'tish</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section style="padding: 150px 0 80px; background: var(--gradient); color: white; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 20px;">O'qitiladigan Fanlar</h1>
+            <p style="font-size: 1.3rem;">Harbiy ta'lim muassasalariga kirish uchun zarur fanlar</p>
+        </div>
+    </section>
+
+    <!-- Fanlar bo'limi -->
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <div class="subjects-container">
+                <!-- Litsenziyatur-gumanitar fanlar -->
+                <div class="subject-category">
+                    <h2>IJTIMOIY-gumanitar Fanlar</h2>
+                    <div class="subject-list">
+                        <div class="subject-item">Tarix</div>
+                        <div class="subject-item">Huquq</div>
+                        <div class="subject-item">Ingliz tili</div>
+                        <div class="subject-item">Ona tili</div>
+                        <div class="subject-item">Adabiyot</div>
+                    </div>
+                </div>
+
+                <!-- Aniq fanlar -->
+                <div class="subject-category">
+                    <h2>Aniq Fanlar</h2>
+                    <div class="subject-list">
+                        <div class="subject-item">Matematika</div>
+                        <div class="subject-item">Fizika</div>
+                        <div class="subject-item">Kimyo</div>
+                        <div class="subject-item">Biologiya</div>
+                    </div>
+                </div>
+
+                <!-- Maxsus tayyorgarlik -->
+                <div class="subject-category">
+                    <h2>Maxsus Tayyorgarlik</h2>
+                    <div class="subject-list">
+                        <div class="subject-item">Jismoniy tayyorgarlik</div>
+                        <div class="subject-item">Psixologik tayyorgarlik</div>
+                        <div class="subject-item">Tibbiy ko'rik</div>
+                        <div class="subject-item">Suhbatga tayyorgarlik</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O'quv yurtlari bo'limi -->
+    <section style="padding: 80px 0; background: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>O'quv Yurtlari Bo'yicha Fanlar</h2>
+                <p>Har bir ta'lim muassasasi uchun zarur fanlar</p>
+            </div>
+            
+            <div class="education-types">
+                <!-- Harbiy litseylar -->
+                <div class="education-card">
+                    <h3>Harbiy Litseylar</h3>
+                    <div class="required-subjects">
+                        <h4>7-9 sinflar uchun:</h4>
+                        <ul>
+                            <li>Tarix / Huquq</li>
+                            <li>Matematika</li>
+                            <li>Ingliz tili</li>
+                            <li>Jismoniy tayyorgarlik</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Oliy harbiy ta'lim -->
+                <div class="education-card">
+                    <h3>Oliy Harbiy Ta'lim</h3>
+                    <div class="required-subjects">
+                        <h4>10-11 sinflar uchun:</h4>
+                        <ul>
+                            <li>Tarix / Huquq</li>
+                            <li>Matematika</li>
+                            <li>Fizika</li>
+                            <li>Kimyo</li>
+                            <li>Jismoniy tayyorgarlik</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asosiy sahifaga qaytish -->
+    <section style="padding: 50px 0;">
+        <div class="container">
+            <div class="back-home" style="text-align: center;">
+                <a href="xorazmshox.html" class="btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Asosiy Sahifaga Qaytish
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="footer-logo-main">Khorezmshakh</div>
+                        <div class="footer-logo-sub">Academy</div>
+                    </div>
+                    <p>Bizning maqsadimiz - har bir o'quvchiga sifatli ta'lim va yorqin kelajak imkoniyatini yaratish.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Tezkor havolalar</h4>
+                    <ul>
+                        <li><a href="xorazmshox.html#home">Bosh sahifa</a></li>
+                        <li><a href="xorazmshox.html#branches">Filiallar</a></li>
+                        <li><a href="xorazmshox.html#courses">Kurslar</a></li>
+                        <li><a href="xorazmshox.html#benefits">Afzalliklar</a></li>
+                        <li><a href="xorazmshox.html#graduates">Bitiruvchilar</a></li>
+                        <li><a href="xorazmshox.html#pricing">Yo'nalishlar</a></li>
+                        <li><a href="xorazmshox.html#registration">Ro'yxatdan o'tish</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Ijtimoiy tarmoqlar</h4>
+                    <div class="social-icons">
+                        <a href="https://t.me/khorezmshakh_academy" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.instagram.com/khorezmshah_academy?igsh=bWJ4M3NtcG9oOW1n" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Khorezmshakh Academy. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobil menyu boshqaruvi
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

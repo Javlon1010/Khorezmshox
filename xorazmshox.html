@@ -1,1113 +1,31 @@
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khorezmshakh Academy - Zamonaviy Ta'lim Markazi</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Asosiy uslublar */
-        :root {
-            --primary: #1a7c25;
-            /* Logodagi yashil rang */
-            --secondary: #d4af37;
-            /* Logodagi oltin rang */
-            --accent: #c0392b;
-            /* Qizil rang */
-            --success: #27ae60;
-            /* Yashil rang */
-            --light: #f5f7fa;
-            --dark: #2d3436;
-            --text: #2d3436;
-            --text-light: #636e72;
-            --transition: all 0.3s ease;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
-            --gradient: linear-gradient(135deg, var(--primary) 0%, #2e7d32 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--text);
-            background-color: #f9f9f9;
-            transition: var(--transition);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .section-title p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 5px;
-            background: var(--gradient);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 5px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn-telegram {
-            background: #0088cc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-telegram:hover {
-            background: #0077b5;
-            color: white;
-        }
-
-        /* Sarlavha va Navigatsiya */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 50px;
-            margin-right: 10px;
-            border-radius: 10px;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-main {
-            font-size: 1.5rem;
-            font-weight: 700;
-            -webkit-background-clip: text;
-            background: var(--gradient);
-            
-            -webkit-text-fill-color: transparent;
-            line-height: 1.1;
-        }
-
-        .logo-sub {
-            font-size: 0.9rem;
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            background: var(--gradient);
-            bottom: -5px;
-            left: 0;
-            transition: var(--transition);
-            border-radius: 3px;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero bo'limi */
-        .hero {
-            background: var(--gradient);
-            color: white;
-            padding: 180px 0 120px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M500,97C126.7,96.3,0,84,0,71V0H1000V71C1000,84,873.3,96.3,500,97z" fill="rgba(255,255,255,0.1)"></path></svg>');
-            background-size: 100% 100px;
-            background-position: bottom;
-            background-repeat: no-repeat;
-        }
-
-        .hero-content h1 {
-            font-size: 3.8rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-        }
-
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* Kurslar bo'limi */
-        .courses {
-            background: var(--light);
-        }
-
-        .courses-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .course-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(30px);
-            border-top: 5px solid var(--primary);
-            position: relative;
-        }
-
-        .course-card.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-            border-top-color: var(--secondary);
-        }
-
-        .course-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .course-content {
-            padding: 25px;
-        }
-
-        .course-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .course-content p {
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        .course-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .course-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        /* Kurslar filtri */
-        .courses-filter {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 10px 25px;
-            background: white;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--gradient);
-            color: white;
-            border-color: transparent;
-        }
-
-        /* Afzalliklar bo'limi */
-        .benefits-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.8s ease;
-        }
-
-        .benefits-content.animate-in {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .benefits-img {
-            flex: 1;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow-hover);
-        }
-
-        .benefits-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .benefits-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .benefits-text {
-            flex: 1;
-        }
-
-        .benefits-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .benefits-text p {
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        .benefit-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .benefit-list li {
-            margin-bottom: 10px;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .benefit-list li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* Bitiruvchilar bo'limi */
-        .graduates {
-            background: var(--light);
-        }
-
-        .graduates-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .graduate-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(30px);
-            position: relative;
-        }
-
-        .graduate-card.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .graduate-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .graduate-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .graduate-info {
-            padding: 25px;
-        }
-
-        .graduate-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .graduate-info p {
-            color: var(--text-light);
-            margin-bottom: 10px;
-        }
-
-        .graduate-course {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .graduate-achievement {
-            background: var(--gradient);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        /* Statistika bo'limi */
-        .stats {
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M500,97C126.7,96.3,0,84,0,71V0H1000V71C1000,84,873.3,96.3,500,97z" fill="rgba(255,255,255,0.1)"></path></svg>');
-            background-size: 100% 100px;
-            background-position: top;
-            background-repeat: no-repeat;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .stat-item {
-            padding: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .stat-item.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        .stat-text {
-            font-size: 1.2rem;
-        }
-
-        /* Narxlar bo'limi */
-        .pricing-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            border: 1px solid #e0e0e0;
-        }
-
-        .pricing-card.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.popular:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient);
-            color: white;
-            padding: 8px 25px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: var(--shadow);
-        }
-
-        .pricing-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 20px 0;
-        }
-
-        .price span {
-            font-size: 1rem;
-            color: var(--text-light);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 30px 0;
-        }
-
-        .pricing-features li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-            text-align: left;
-        }
-
-        .pricing-features li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        /* Telegram ro'yxatdan o'tish bo'limi */
-        .telegram-registration {
-            background: var(--light);
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .telegram-content {
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .telegram-content.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .telegram-icon {
-            font-size: 5rem;
-            color: #0088cc;
-            margin-bottom: 20px;
-        }
-
-        .telegram-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .telegram-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--text-light);
-        }
-
-        .contact-info {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .contact-info p {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 70px 0 30px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-
-        .footer-logo {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .footer-logo-main {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: white;
-        }
-
-        .footer-logo-sub {
-            font-size: 1rem;
-            color: var(--secondary);
-        }
-
-        .footer-links h4,
-        .footer-social h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .footer-links h4::after,
-        .footer-social h4::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            background: var(--secondary);
-            bottom: -8px;
-            left: 0;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-icons a:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bdc3c7;
-            font-size: 0.9rem;
-        }
-
-        /* Yuklash animatsiyasi */
-        .loading {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: loading 1.5s infinite;
-        }
-
-        @keyframes loading {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        /* Muvaffaqiyat modali */
-        .success-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .success-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            transform: scale(0.9);
-            transition: all 0.3s ease;
-        }
-
-        .success-modal.active .modal-content {
-            transform: scale(1);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-light);
-        }
-
-        .modal-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--success);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            margin: 0 auto 20px;
-        }
-
-        .modal-btn {
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        /* Tema almashish tugmasi */
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 15px;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        /* Dark tema */
-        .dark-theme {
-            --light: #2c3e50;
-            --dark: #ecf0f1;
-            --text: #ecf0f1;
-            --text-light: #bdc3c7;
-            background-color: #1a2530;
-            color: var(--text);
-        }
-
-        .dark-theme header {
-            background: #2c3e50;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .dark-theme .course-card,
-        .dark-theme .graduate-card,
-        .dark-theme .pricing-card {
-            background: #34495e;
-            color: var(--text);
-        }
-
-        .dark-theme .form-control {
-            background: #2c3e50;
-            border-color: #4a5f7a;
-            color: var(--text);
-        }
-
-        .dark-theme .filter-btn {
-            background: #34495e;
-            color: var(--text);
-        }
-
-        .dark-theme .filter-btn.active,
-        .dark-theme .filter-btn:hover {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .dark-theme .courses,
-        .dark-theme .graduates {
-            background: #2c3e50;
-        }
-
-        /* Responsiv uslublar */
-        @media (max-width: 992px) {
-            .benefits-content {
-                flex-direction: column;
-            }
-
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .pricing-card.popular {
-                transform: scale(1);
-            }
-
-            .pricing-card.popular:hover {
-                transform: translateY(-10px);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                flex-direction: column;
-                background: white;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-                padding: 20px 0;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                margin: 15px 0;
-            }
-
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-btns .btn {
-                width: 200px;
-                margin-bottom: 10px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .modal-content {
-                padding: 30px 20px;
-            }
-
-            .courses-filter {
-                gap: 5px;
-            }
-
-            .filter-btn {
-                padding: 8px 18px;
-                font-size: 0.9rem;
-            }
-
-            .theme-toggle {
-                margin-left: 10px;
-                padding: 5px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .course-content h3,
-            .graduate-info h3,
-            .pricing-header h3 {
-                font-size: 1.2rem;
-            }
-
-            .benefits-text h3 {
-                font-size: 1.5rem;
-            }
-
-            .telegram-content h2 {
-                font-size: 2rem;
-            }
-            /* Qo'shimcha markazlashtirish uslublari */
-.graduates-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* Konteyner markazlashtirish */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Bo'limni markazlashtirish */
-.graduates {
-    text-align: center;
-}
-
-        }
-    </style>
 </head>
-
 <body>
     <!-- Sarlavha va Navigatsiya -->
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo-container">
-                    <!-- Logoni SVG formatida yaratamiz -->
-
+                <a href="index.html" class="logo-container">
+                    <img src="img/Flag 1.jpg" alt="Logo" class="logo-img">
                     <div class="logo-text">
-                        <img src="Flag 1.jpg" alt="" width="150px" height="70px">
-
+                        <div class="logo-main">Khorezmshakh</div>
+                        <div class="logo-sub">Academy</div>
                     </div>
                 </a>
                 <ul class="nav-links">
                     <li><a href="#home">Bosh sahifa</a></li>
+                    <li><a href="#branches">Filiallar</a></li>
                     <li><a href="#courses">Kurslar</a></li>
                     <li><a href="#benefits">Afzalliklar</a></li>
                     <li><a href="#graduates">Bitiruvchilar</a></li>
-                    <li><a href="#pricing">Narxlar</a></li>
+                    <li><a href="#pricing">Yo'nalishlar</a></li>
                     <li><a href="#registration">Ro'yxatdan o'tish</a></li>
                 </ul>
                 <div class="menu-toggle">
@@ -1121,12 +39,49 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Buyuk ajdodlar izidan !</h1>
-                <p>Zamonaviy kasblarni o'rganing va muvaffaqiyatli karyerangizni boshlang. Biz sizga eng yaxshi ta'lim
-                    va qo'llab-quvvatlovchi muhitni taqdim etamiz.</p>
+                <h1>Buyuk ajdodlar izidan!</h1>
+                <p>Zamonaviy kasblarni o'rganing va muvaffaqiyatli karyerangizni boshlang. Biz sizga eng yaxshi ta'lim va qo'llab-quvvatlovchi muhitni taqdim etamiz.</p>
                 <div class="hero-btns">
                     <a href="#courses" class="btn">Kurslarni Ko'rish</a>
                     <a href="#registration" class="btn btn-outline">Bepul Konsultatsiya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filiallarni tanlash bo'limi -->
+    <section class="branches" id="branches">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bizning Filiallarimiz</h2>
+                <p>Qulay joylashuvdagi filialimizni tanlang</p>
+            </div>
+            <div class="branches-container">
+                <div class="branch-card" data-branch="urganch">
+                    <div class="branch-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Urganch Filiali</h3>
+                    <p>Asosiy filial</p>
+                    <button class="btn branch-select" data-branch="urganch">Tanlash</button>
+                </div>
+                
+                <div class="branch-card" data-branch="xiva">
+                    <div class="branch-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Xiva Filiali</h3>
+                    <p>Xiva shahar Turizm kolleji roparasi</p>
+                    <button class="btn branch-select" data-branch="xiva">Tanlash</button>
+                </div>
+                
+                <div class="branch-card" data-branch="qoshkopir">
+                    <div class="branch-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3>Qo'shko'pir Filiali</h3>
+                    <p>19-maktab roparasi</p>
+                    <button class="btn branch-select" data-branch="qoshkopir">Tanlash</button>
                 </div>
             </div>
         </div>
@@ -1136,53 +91,63 @@
     <section class="courses" id="courses">
         <div class="container">
             <div class="section-title">
-                <h2>Bizning Kurslar</h2>
-                <p>Zamonaviy kasblarni o'rganish uchun eng yaxshi kurslar</p>
+                <h2>O'quv Kurslarimiz</h2>
+                <p>Harbiy ta'lim muassasalariga tayyorgarlik kurslari</p>
             </div>
-
-            <!-- Kurslar filtri -->
-            <div class="courses-filter">
-                <button class="filter-btn active" data-filter="all">Barchasi</button>
-                <button class="filter-btn" data-filter="programming">Dasturlash</button>
-                <button class="filter-btn" data-filter="language">Tillar</button>
-                <button class="filter-btn" data-filter="science">Fanlar</button>
-            </div>
-
+            
             <div class="courses-container">
-                <div class="course-card" data-category="programming">
-                    <img src="huquq.jpg" alt="Dasturlash kursi" class="course-img">
+                <!-- 1. Sentyabr-Iyul kursi -->
+                <div class="course-card" data-category="harbiy">
+                    <div class="course-header">
+                        <h3>Sentyabr - Iyul</h3>
+                        <span class="course-duration">10 oy</span>
+                    </div>
                     <div class="course-content">
-                        <h3>Xuquqshunoslik</h3>
-                        <p>Biz bilan huquq asoslarini o'rganing . Noldan boshlab professional darajagacha.</p>
+                        <h4>Fanlar:</h4>
+                        <ul>
+                            <li>Tarix / Huquq</li>
+                            <li>Matematika</li>
+                        </ul>
                         <div class="course-meta">
-                            <span><i class="far fa-clock"></i> 3 oy</span>
+                            <span><i class="far fa-clock"></i> 10 oy</span>
                             <span><i class="far fa-user"></i> 15 o'quvchi</span>
+                        </div>
+                        <div class="course-price">345,000 so'm/oy</div>
+                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                    </div>
+                </div>
+
+                <!-- 2. Oktyabr-Aprel kursi -->
+                <div class="course-card" data-category="tibbiy">
+                    <div class="course-header">
+                        <h3>Oktyabr - Aprel</h3>
+                        <span class="course-duration">6 oy</span>
+                    </div>
+                    <div class="course-content">
+                        <h4>Fanlar:</h4>
+                        <ul>
+                            <li>Tibbiy ko'rik</li>
+                        </ul>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 6 oy</span>
+                            <span><i class="far fa-user"></i> 12 o'quvchi</span>
                         </div>
                         <div class="course-price">445,000 so'm/oy</div>
                         <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
                     </div>
                 </div>
-                <div class="course-card" data-category="language">
-                    <img src="e.jpg" alt="Ingliz tili kursi" class="course-img">
-                    <div class="course-content">
-                        <h3>Ingliz Tili</h3>
-                        <p>Boshlang'ichdan ilg'or darajagacha ingliz tilini o'rganing. IELTS va TOEFL tayyorgarligi.</p>
-                        <div class="course-meta">
-                            <span><i class="far fa-clock"></i> 6 oy</span>
-                            <span><i class="far fa-user"></i> 12 o'quvchi</span>
-                        </div>
 
-                        <div class="course-price">345,000 so'm/oy <h6>IELTS va sertifikat tayyorgarligi 445,000</h6>
-                        </div>
-                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+                <!-- 3. Yanvar-May kursi -->
+                <div class="course-card" data-category="psixologik">
+                    <div class="course-header">
+                        <h3>Yanvar - May</h3>
+                        <span class="course-duration">4 oy</span>
                     </div>
-                </div>
-                <div class="course-card" data-category="science">
-                    <img src="matem.jpg" alt="Matematika kursi" class="course-img">
                     <div class="course-content">
-                        <h3>Matematika</h3>
-                        <p>Maktab va universitet dasturlari bo'yicha matematikani chuqur o'rganing. Test tayyorgarligi.
-                        </p>
+                        <h4>Fanlar:</h4>
+                        <ul>
+                            <li>Psixologik tayyorgarlik</li>
+                        </ul>
                         <div class="course-meta">
                             <span><i class="far fa-clock"></i> 4 oy</span>
                             <span><i class="far fa-user"></i> 10 o'quvchi</span>
@@ -1191,44 +156,23 @@
                         <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
                     </div>
                 </div>
-                <div class="course-card" data-category="programming">
-                    <img src="tarix.png" alt="Web Dasturlash" class="course-img">
-                    <div class="course-content">
-                        <h3>Tarix</h3>
-                        <p>Tarixiy malumotlardan foydalanib turon va jahon tarixini o'rganing.</p>
-                        <div class="course-meta">
-                            <span><i class="far fa-clock"></i> 4 oy</span>
-                            <span><i class="far fa-user"></i> 12 o'quvchi</span>
-                        </div>
-                        <div class="course-price">445,000 so'm/oy <h6>sertifikat</h6>
-                        </div>
-                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
+
+                <!-- 4. Fevral-Iyun kursi -->
+                <div class="course-card" data-category="jismoniy">
+                    <div class="course-header">
+                        <h3>Fevral - Iyun</h3>
+                        <span class="course-duration">4 oy</span>
                     </div>
-                </div>
-                <div class="course-card" data-category="language">
-                    <img src="rus.jpg" alt="Rus tili kursi" class="course-img">
                     <div class="course-content">
-                        <h3>Rus Tili</h3>
-                        <p>Boshlang'ichdan ilg'or darajagacha rus tilini o'rganing. Ish va o'qish imkoniyatlari uchun.
-                        </p>
-                        <div class="course-meta">
-                            <span><i class="far fa-clock"></i> 5 oy</span>
-                            <span><i class="far fa-user"></i> 10 o'quvchi</span>
-                        </div>
-                        <div class="course-price">345,000 so'm/oy</div>
-                        <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
-                    </div>
-                </div>
-                <div class="course-card" data-category="science">
-                    <img src="kares.jpg" alt="Fizika kursi" class="course-img">
-                    <div class="course-content">
-                        <h3>Koreys Tili</h3>
-                        <p>TOPIK imtihonidan tez muddatda yuqoriroq ball olish</p>
+                        <h4>Fanlar:</h4>
+                        <ul>
+                            <li>Jismoniy tayyorgarlik</li>
+                        </ul>
                         <div class="course-meta">
                             <span><i class="far fa-clock"></i> 4 oy</span>
                             <span><i class="far fa-user"></i> 8 o'quvchi</span>
                         </div>
-                        <div class="course-price">345000 so'm/oy</div>
+                        <div class="course-price">345,000 so'm/oy</div>
                         <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
                     </div>
                 </div>
@@ -1245,14 +189,12 @@
             </div>
             <div class="benefits-content">
                 <div class="benefits-img">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                        alt="O'quv markazi">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="O'quv markazi">
                 </div>
                 <div class="benefits-text">
                     <h3>Bizning O'quv Markazimizning Afzalliklari</h3>
-                    <p>Biz har bir o'quvchining ehtiyojlariga moslashtirilgan ta'lim olish huquqiga ega ekanligiga
-                        ishonamiz.</p>
-
+                    <p>Biz har bir o'quvchining ehtiyojlariga moslashtirilgan ta'lim olish huquqiga ega ekanligiga ishonamiz.</p>
+                    
                     <ul class="benefit-list">
                         <li>Tajribali va malakali o'qituvchilar</li>
                         <li>Zamonaviy o'quv dasturlari va uslublari</li>
@@ -1263,30 +205,28 @@
                         <li>O'quv materiallari va qo'llanmalar</li>
                         <li>Muvaffaqiyat sertifikatlari</li>
                     </ul>
-
+                    
                     <a href="#registration" class="btn">Ro'yxatdan o'tish</a>
                 </div>
             </div>
         </div>
     </section>
 
-    
     <!-- Bitiruvchilar bo'limi -->
-   
-<section class="graduates" id="graduates">
-    <div class="container">
-        <div class="section-title">
-            <h2>Muvaffaqiyatli Bitiruvchilarimiz</h2>
-            <p>Bizning kurslarimizni tamomlagan va muvaffaqiyatga erishgan o'quvchilarimiz</p>
+    <section class="graduates" id="graduates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Muvaffaqiyatli Bitiruvchilarimiz</h2>
+                <p>Bizning kurslarimizni tamomlagan va muvaffaqiyatga erishgan o'quvchilarimiz</p>
+            </div>
+            <div class="graduates-button-container">
+                <a href="bitiruvchilar.html" class="btn btn-large">
+                    <i class="fas fa-users"></i>
+                    Bizning Bitiruvchilarimiz
+                </a>
+            </div>
         </div>
-        <div class="graduates-button-container">
-            <a href="bitiruvchilar.html" class="btn btn-large">
-                <i class="fas fa-users"></i>
-                Bizning Bitiruvchilarimiz
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Statistika bo'limi -->
     <section class="stats">
@@ -1298,7 +238,7 @@
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">15+</div>
-                    <div class="stat-text">Zamonaviy Kurslar</div>
+                    <div class="stat-text">Kurslar soni</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">98%</div>
@@ -1312,54 +252,62 @@
         </div>
     </section>
 
-    <!-- Narxlar bo'limi -->
+    <!-- Yo'nalishlar bo'limi -->
     <section id="pricing">
         <div class="container">
             <div class="section-title">
-                <h2>Yonalishlar</h2>
+                <h2>Yo'nalishlar</h2>
+                <p>O'quv yo'nalishlari bo'yicha to'liq ma'lumot</p>
             </div>
             <div class="pricing-container">
+                <!-- Litseylar yo'nalishi -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Harbiy kurs</h3>
-                        <p>8-9 sinflar uchun</p>
+                        <h3>Litseylar Yo'nalishi</h3>
+                        <p>7-9 sinflar uchun</p>
                     </div>
                     <div class="price">345,000 <span>so'm/oy</span></div>
                     <ul class="pricing-features">
-                        <li>Tarix</li>
-                        <li>Ingliz tili</li>
-
-                    </ul>
-
-                </div>
-                <div class="pricing-card popular">
-                    <div class="pricing-header">
-                        <h3>Prezident maktabiga <br>tayorgarlig</h3>
-                    </div>
-                    <div class="price">345,000 <span>so'm/oy</span></div>
-                    <ul class="pricing-features">
+                        <li>Tarix / Huquq</li>
                         <li>Matematika</li>
                         <li>Ingliz tili</li>
-                        <li>Tanqidiy fikrlash</li>
-
+                        <li>Ona tili</li>
                     </ul>
-
+                    <a href="fanlar.html" class="btn">Batafsil Ma'lumot</a>
                 </div>
-                <div class="pricing-card">
+
+                <!-- HARBIY KURS (MARKAZDA) -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Keng Tarqlgan</div>
                     <div class="pricing-header">
-                        <h3>Milliy sertifikat</h3>
-                        <p>har bir fanga alohida kelsih mumkin</p>
+                        <h3>Harbiy Kurs</h3>
+                        <p>7-11 sinflar uchun</p>
                     </div>
                     <div class="price">445,000 <span>so'm/oy</span></div>
                     <ul class="pricing-features">
+                        <li>Tarix / Huquq</li>
                         <li>Matematika</li>
-                        <li>Tarix</li>
-                        <li>Ingliz tili</li>
-                        <li>Ona tilli</li>
-                        <li>Turk tilli</li>
-
+                        <li>Jismoniy tayyorgarlik</li>
+                        <li>Psixologik tayyorgarlik</li>
+                        <li>Tibbiy ko'rik</li>
                     </ul>
+                    <a href="fanlar.html" class="btn">Batafsil Ma'lumot</a>
+                </div>
 
+                <!-- Akademik litsey yo'nalishi -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Akademik Litsey</h3>
+                        <p>9-sinf uchun</p>
+                    </div>
+                    <div class="price">345,000 <span>so'm/oy</span></div>
+                    <ul class="pricing-features">
+                        <li>Matematika</li>
+                        <li>Fizika</li>
+                        <li>Kimyo</li>
+                        <li>Biologiya</li>
+                    </ul>
+                    <a href="fanlar.html" class="btn">Batafsil Ma'lumot</a>
                 </div>
             </div>
         </div>
@@ -1373,10 +321,9 @@
                     <i class="fab fa-telegram"></i>
                 </div>
                 <h2>Telegram orqali ro'yxatdan o'ting</h2>
-                <p>Bizning adminstrator orqali tez va oson ro'yxatdan o'ting. adminstrator sizga kerakli ma'lumotlarni
-                    yozishingizda yordam beradi </p>
-                <a href="https://t.me/@Qutlimuradov_Ixlosbek" class="btn btn-telegram" target="_blank">
-                    <i class="fab fa-telegram"></i> Boglanish
+                <p>Bizning adminstrator orqali tez va oson ro'yxatdan o'ting. adminstrator sizga kerakli ma'lumotlarni yozishingizda yordam beradi</p>
+                <a href="https://t.me/Qutlimuradov_Ixlosbek" class="btn btn-telegram" target="_blank">
+                    <i class="fab fa-telegram"></i> Bog'lanish
                 </a>
                 <div class="contact-info">
                     <p><i class="fas fa-phone"></i> +998 88 458 4404</p>
@@ -1395,17 +342,17 @@
                         <div class="footer-logo-main">Khorezmshakh</div>
                         <div class="footer-logo-sub">Academy</div>
                     </div>
-                    <p>Bizning maqsadimiz - har bir o'quvchiga sifatli ta'lim va yorqin kelajak imkoniyatini yaratish.
-                    </p>
+                    <p>Bizning maqsadimiz - har bir o'quvchiga sifatli ta'lim va yorqin kelajak imkoniyatini yaratish.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Tezkor havolalar</h4>
                     <ul>
                         <li><a href="#home">Bosh sahifa</a></li>
+                        <li><a href="#branches">Filiallar</a></li>
                         <li><a href="#courses">Kurslar</a></li>
                         <li><a href="#benefits">Afzalliklar</a></li>
                         <li><a href="#graduates">Bitiruvchilar</a></li>
-                        <li><a href="#pricing">Narxlar</a></li>
+                        <li><a href="#pricing">Yo'nalishlar</a></li>
                         <li><a href="#registration">Ro'yxatdan o'tish</a></li>
                     </ul>
                 </div>
@@ -1413,8 +360,7 @@
                     <h4>Ijtimoiy tarmoqlar</h4>
                     <div class="social-icons">
                         <a href="https://t.me/khorezmshakh_academy" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://www.instagram.com/khorezmshah_academy?igsh=bWJ4M3NtcG9oOW1n"><i
-                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/khorezmshah_academy?igsh=bWJ4M3NtcG9oOW1n" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -1424,113 +370,6 @@
         </div>
     </footer>
 
-
-    <script>
-        // Mobil menyu boshqaruvi
-        document.querySelector('.menu-toggle').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Navigatsiya havolalari uchun silliq skroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-
-                    // Mobil menyu ochiq bo'lsa yopish
-                    document.querySelector('.nav-links').classList.remove('active');
-                }
-            });
-        });
-
-        // Kurslarni filtrlash funksiyasi
-        function filterCourses(category) {
-            const courseCards = document.querySelectorAll('.course-card');
-
-            courseCards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        // Scroll animatsiyalari
-        function initScrollAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                    }
-                });
-            }, observerOptions);
-
-            // Kuzatishni boshlash
-            document.querySelectorAll('.course-card, .graduate-card, .pricing-card, .benefits-content, .stat-item, .telegram-content').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
-        // Dark/Light mode
-        function initThemeToggle() {
-            const themeToggle = document.createElement('button');
-            themeToggle.className = 'theme-toggle';
-            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            themeToggle.title = 'Tema almashish';
-
-            document.querySelector('.navbar').appendChild(themeToggle);
-
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-theme');
-                if (document.body.classList.contains('dark-theme')) {
-                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-
-            // Saqlangan temani yuklash
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-theme');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        }
-
-        // Sahifa yuklanganda bajariladigan funksiyalar
-        document.addEventListener('DOMContentLoaded', function () {
-            initScrollAnimations();
-            initThemeToggle();
-
-            // Kurslar filtri
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            if (filterButtons.length) {
-                filterButtons.forEach(btn => {
-                    btn.addEventListener('click', function () {
-                        filterButtons.forEach(b => b.classList.remove('active'));
-                        this.classList.add('active');
-                        filterCourses(this.dataset.filter);
-                    });
-                });
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
