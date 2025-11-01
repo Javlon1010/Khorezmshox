@@ -74,7 +74,9 @@ section {
     transform: translateX(-50%);
     border-radius: 5px;
 }
-
+.p{
+    margin-top: 3rem;
+}
 .btn {
     display: inline-block;
     padding: 14px 32px;
@@ -88,8 +90,20 @@ section {
     transition: var(--transition);
     box-shadow: var(--shadow);
     text-align: center;
+    position: relative;
+    position: relative;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
-
+.b{
+    text-align: center;
+}
 .btn:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
@@ -369,6 +383,7 @@ header {
 
 .course-content {
     padding: 25px;
+    
 }
 
 .course-content h4 {
@@ -589,14 +604,19 @@ header {
 }
 
 .pricing-header h3 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 10px;
-    color: var(--dark);
+    color: #1e6b33;
 }
-
+.s{
+    padding: 17px 120px;
+    font-size: 22px;
+    margin-bottom: 3rem;
+}
 .pricing-header p {
     color: var(--text-light);
     margin-bottom: 10px;
+    font-size: 19px;
 }
 
 .price {
@@ -1396,6 +1416,7 @@ footer {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+
     }
 }
 

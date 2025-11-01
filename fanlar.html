@@ -3,205 +3,348 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O'qitiladigan Fanlar - Khorezmshakh Academy</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Fanlar - O'quv Dasturlari</title>
+    <link rel="stylesheet" href="stylee.css">
     <style>
-        .subjects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        :root {
+    --primary: #1e6b33;
+    --secondary: #2e8b57;
+    --accent: #c0392b;
+    --success: #27ae60;
+    --light: #f5f7fa;
+    --dark: #2d3436;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --transition: all 0.3s ease;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --shadow-hover: 0 15px 40px rgba(0,0,0,0.15);
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    text-align: center;
+    
+}
+.b{
+    text-align: center;
+}
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e6b33 0%, #0a6531 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .fan-types {
+            display: flex;
+            justify-content: center;
             gap: 30px;
-            margin-bottom: 50px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            
         }
-
-        .subject-category {
+        
+        .fan-type-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            border-top: 5px solid var(--primary);
+            border-radius: 12px;
+            padding: 25px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s;
         }
-
-        .subject-category h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
+        
+        .fan-type-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .fan-type-card h2 {
+            color: #0a6531;
+            margin-bottom: 15px;
             font-size: 1.5rem;
         }
-
-        .subject-list {
-            display: grid;
-            gap: 10px;
+        
+        .fan-list {
+            list-style-type: none;
+            text-align: left;
         }
-
-        .subject-item {
-            padding: 12px 20px;
-            background: var(--light);
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-            font-weight: 500;
+        
+        .fan-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
         }
-
-        .education-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
+        
+        .fan-list li:last-child {
+            border-bottom: none;
         }
-
-        .education-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .education-card h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-
-        .required-subjects h4 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-
-        .required-subjects ul {
-            list-style: none;
-        }
-
-        .required-subjects li {
-            padding: 8px 0;
-            border-bottom: 1px solid #f0f0f0;
+        
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+           color: #0a6531;
+            font-size: 1.8rem;
             position: relative;
-            padding-left: 25px;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #2a8a5e;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .sinf-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .sinf-box {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .sinf-title {
+            background: #2a8a5e;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .muassasa-list {
+            list-style-type: none;
+        }
+        
+        .muassasa-list li {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #2a8a5e;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .muassasa-list li:hover {
+            background: #e9ecef;
+        }
+        
+        .location {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .note-box {
+            background: #e7f3ff;
+            border-left: 5px solid  #2a8a5e;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9rem;
+            border-top: 1px solid #e9ecef;
         }
 
-        .required-subjects li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
+
+        
+        @media (max-width: 768px) {
+            .sinf-sections {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .fan-types {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
-<body>
+<body >
     <header>
         <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo-container">
-                    <div class="logo-text">
-                        <div class="logo-main">Khorezmshakh</div>
-                        <div class="logo-sub">Academy</div>
-                    </div>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html#home">Bosh sahifa</a></li>
-                    <li><a href="index.html#branches">Filiallar</a></li>
-                    <li><a href="index.html#courses">Kurslar</a></li>
-                    <li><a href="index.html#benefits">Afzalliklar</a></li>
-                    <li><a href="index.html#graduates">Bitiruvchilar</a></li>
-                    <li><a href="index.html#pricing">Yo'nalishlar</a></li>
-                    <li><a href="index.html#registration">Ro'yxatdan o'tish</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+            <h1>Fanlar</h1>
+            <p class="subtitle">O'quv dasturlari va ta'lim yo'nalishlari</p>
         </div>
     </header>
-
-    <section style="padding: 150px 0 80px; background: var(--gradient); color: white; text-align: center;">
-        <div class="container">
-            <h1 style="font-size: 3rem; margin-bottom: 20px;">O'qitiladigan Fanlar</h1>
-            <p style="font-size: 1.3rem;">Harbiy ta'lim muassasalariga kirish uchun zarur fanlar</p>
-        </div>
-    </section>
-
-    <!-- Fanlar bo'limi -->
-    <section style="padding: 80px 0;">
-        <div class="container">
-            <div class="subjects-container">
-                <!-- Litsenziyatur-gumanitar fanlar -->
-                <div class="subject-category">
-                    <h2>IJTIMOIY-gumanitar Fanlar</h2>
-                    <div class="subject-list">
-                        <div class="subject-item">Tarix</div>
-                        <div class="subject-item">Huquq</div>
-                        <div class="subject-item">Ingliz tili</div>
-                        <div class="subject-item">Ona tili</div>
-                        <div class="subject-item">Adabiyot</div>
-                    </div>
-                </div>
-
-                <!-- Aniq fanlar -->
-                <div class="subject-category">
-                    <h2>Aniq Fanlar</h2>
-                    <div class="subject-list">
-                        <div class="subject-item">Matematika</div>
-                        <div class="subject-item">Fizika</div>
-                        <div class="subject-item">Kimyo</div>
-                        <div class="subject-item">Biologiya</div>
-                    </div>
-                </div>
-
-                <!-- Maxsus tayyorgarlik -->
-                <div class="subject-category">
-                    <h2>Maxsus Tayyorgarlik</h2>
-                    <div class="subject-list">
-                        <div class="subject-item">Jismoniy tayyorgarlik</div>
-                        <div class="subject-item">Psixologik tayyorgarlik</div>
-                        <div class="subject-item">Tibbiy ko'rik</div>
-                        <div class="subject-item">Suhbatga tayyorgarlik</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- O'quv yurtlari bo'limi -->
-    <section style="padding: 80px 0; background: var(--light);">
-        <div class="container">
-            <div class="section-title">
-                <h2>O'quv Yurtlari Bo'yicha Fanlar</h2>
-                <p>Har bir ta'lim muassasasi uchun zarur fanlar</p>
+    
+    <div class="container">
+        <div class="fan-types">
+            <div class="fan-type-card">
+                <h2>Aniq Fanlar</h2>
+                <ul class="fan-list">
+                    <li>Matematika</li>
+                    <li>Fizika</li>
+                    <li>Kimyo</li>
+                    <li>Biologiya</li>
+                    <li>Informatika</li>
+                </ul>
             </div>
             
-            <div class="education-types">
-                <!-- Harbiy litseylar -->
-                <div class="education-card">
-                    <h3>Harbiy Litseylar</h3>
-                    <div class="required-subjects">
-                        <h4>7-9 sinflar uchun:</h4>
-                        <ul>
-                            <li>Tarix / Huquq</li>
-                            <li>Matematika</li>
-                            <li>Ingliz tili</li>
-                            <li>Jismoniy tayyorgarlik</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Oliy harbiy ta'lim -->
-                <div class="education-card">
-                    <h3>Oliy Harbiy Ta'lim</h3>
-                    <div class="required-subjects">
-                        <h4>10-11 sinflar uchun:</h4>
-                        <ul>
-                            <li>Tarix / Huquq</li>
-                            <li>Matematika</li>
-                            <li>Fizika</li>
-                            <li>Kimyo</li>
-                            <li>Jismoniy tayyorgarlik</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="fan-type-card">
+                <h2>Ijtimoiy-Gumanitar Fanlar</h2>
+                <ul class="fan-list">
+                    <li>Tarix</li>
+                    <li>Huquq</li>
+                    <li>Adabiyot</li>
+                    <li>Psixologiya</li>
+                    <li>Jamiyatshunoslik</li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Asosiy sahifaga qaytish -->
-    <section style="padding: 50px 0;">
+        
+        <h2 class="section-title">ANIQ FANLAR O'RQALI KIRIRSH MUMKIN BO'LGAN  OTMlar</h2>
+        
+        <div class="sinf-sections">
+            <div class="sinf-box">
+                <div class="sinf-title">7, 8, 9-sinf o'quvchilari</div>
+                <ul class="muassasa-list">
+                    <li>Jaloliddin Manguberdi nomidagi harbiy akademik litseyi
+                        <span class="location">Urganch sh.</span>
+                    </li>
+                    <li>Milliy gvardiya "Temurbeklar maktabi"
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                    <li>Mudofaa vazirligi "Temurbeklar maktabi"
+                        <span class="location">Farg'ona sh.</span>
+                    </li>
+                    <li>FVV "Temurbeklar maktabi"
+                        <span class="location">Shahrisabz sh.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sinf-box">
+                <div class="sinf-title">10, 11-sinf o'quvchilari</div>
+                <ul class="muassasa-list">
+                    <li>Qurolli kuchlar akademiyasi
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                    <li>Chirchiq oliy tank qo'mondonlik-muhandislik bilim yurti
+                        <span class="location">Chirchiq sh.</span>
+                    </li>
+                    <li>Oliy harbiy aviatsiya instituti
+                        <span class="location">Jizzax sh.</span>
+                    </li>
+                    <li>FVV akademiyasi
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                    <li>Aloqa harbiy instituti
+                        <span class="location">Toshkent v. Zangiota t.</span>
+                    </li>
+                    <li>Bojxona instituti
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2 class="section-title">IJTIMOIY-GUMANITAR FANLAR ORQALI KIRISH MUMKIN BO'LGAN OTMlar</h2>
+        
+        <div class="sinf-sections">
+            <div class="sinf-box">
+                <div class="sinf-title">7, 8, 9-sinf o'quvchilari</div>
+                <ul class="muassasa-list">
+                    <li>IIV akademik litseylari</li>
+                    <li>Milliy gvardiya "Temurbeklar maktabi"
+                        <span class="location">Toshkent sh., Nukus sh.</span>
+                    </li>
+                    <li>DXX "Temurbeklar maktabi"
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sinf-box">
+                <div class="sinf-title">10, 11-sinf o'quvchilari</div>
+                <ul class="muassasa-list">
+                    <li>IIV akademiyasi
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                    <li>Huquqni muhofaza qilish akademiyasi
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                    <li>Jamoat xavfsizligi universiteti
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                    <li>DXX akademiyasi
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                    <li>Bojxona instituti
+                        <span class="location">Toshkent sh.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <section style="padding: 50px 0;">
         <div class="container">
             <div class="back-home" style="text-align: center;">
                 <a href="xorazmshox.html" class="btn">
@@ -212,48 +355,16 @@
         </div>
     </section>
 
-    <!-- Footer -->
+        <div class="note-box">
+            <h3>Eslatma:</h3>
+            <p>Fanni o'rganish davri rasmiy sinovlar sanasiga qarab o'zgarishi mumkin. Oliy harbiy bilim yurtlariga topshiruvchilar asosiy fandan tashqari majburiy fanlarga ham tayyorgarlik ko'rishadi.</p>
+        </div>
+    </div>
+    
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <div class="footer-logo-main">Khorezmshakh</div>
-                        <div class="footer-logo-sub">Academy</div>
-                    </div>
-                    <p>Bizning maqsadimiz - har bir o'quvchiga sifatli ta'lim va yorqin kelajak imkoniyatini yaratish.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Tezkor havolalar</h4>
-                    <ul>
-                        <li><a href="xorazmshox.html#home">Bosh sahifa</a></li>
-                        <li><a href="xorazmshox.html#branches">Filiallar</a></li>
-                        <li><a href="xorazmshox.html#courses">Kurslar</a></li>
-                        <li><a href="xorazmshox.html#benefits">Afzalliklar</a></li>
-                        <li><a href="xorazmshox.html#graduates">Bitiruvchilar</a></li>
-                        <li><a href="xorazmshox.html#pricing">Yo'nalishlar</a></li>
-                        <li><a href="xorazmshox.html#registration">Ro'yxatdan o'tish</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Ijtimoiy tarmoqlar</h4>
-                    <div class="social-icons">
-                        <a href="https://t.me/khorezmshakh_academy" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://www.instagram.com/khorezmshah_academy?igsh=bWJ4M3NtcG9oOW1n" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Khorezmshakh Academy. Barcha huquqlar himoyalangan.</p>
-            </div>
+            <p>© 2025 Fanlar Sahifasi. Barcha huquqlar himoyalangan.</p>
         </div>
     </footer>
-
-    <script>
-        // Mobil menyu boshqaruvi
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-    </script>
 </body>
 </html>
