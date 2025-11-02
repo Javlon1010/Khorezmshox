@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fanlar - O'quv Dasturlari</title>
-    <link rel="stylesheet" href="stylee.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         :root {
     --primary: #1e6b33;
@@ -57,20 +57,21 @@
             line-height: 1.6;
         }
         
-        .container {
+        .containerr {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
         
-        header {
+        .header {
             background: linear-gradient(135deg, #1e6b33 0%, #0a6531 100%);
             color: white;
-            padding: 30px 0;
+            padding: 35px 0;
             text-align: center;
-            border-radius: 0 0 15px 15px;
+            border-radius: 0 0 10px 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
+            margin-top: 80px;
         }
         
         h1 {
@@ -79,7 +80,7 @@
             
         }
         
-        .subtitle {
+        .subtitler {
             font-size: 1.2rem;
             opacity: 0.9;
         }
@@ -229,13 +230,42 @@
 </head>
 <body >
     <header>
+        
         <div class="container">
-            <h1>Fanlar</h1>
-            <p class="subtitle">O'quv dasturlari va ta'lim yo'nalishlari</p>
+            <nav class="navbar">
+                <a href="index.html" class="logo-container">
+                    <img src="img/Flag 1.jpg" alt="Logo" class="logo-img">
+                    <div class="logo-text">
+                        <div class="logo-main">Khorezmshakh</div>
+                        <div class="logo-sub">Academy</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="xorazmshox.html#home">Bosh sahifa</a></li>
+                    <li><a href="xorazmshox.html#branches">Filiallar</a></li>
+                    <li><a href="xorazmshox.html#courses">Kurslar</a></li>
+                    <li><a href="xorazmshox.html#benefits">Afzalliklar</a></li>
+                    <li><a href="xorazmshox.html#graduates">Bitiruvchilar</a></li>
+                    <li><a href="xorazmshox.html#pricing">Yo'nalishlar</a></li>
+                    <li><a href="xorazmshox.html#registration">Ro'yxatdan o'tish</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
+
+
+
+      
     </header>
-    
-    <div class="container">
+    <div class="header">
+      <div class="containerr">
+            <h1>Fanlar</h1>
+            <p id="subtitler">O'quv dasturlari va ta'lim yo'nalishlari</p>
+        </div>
+    </div>
+    <div class="containerr">
         <div class="fan-types">
             <div class="fan-type-card">
                 <h2>Aniq Fanlar</h2>

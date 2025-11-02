@@ -103,6 +103,10 @@ section {
 }
 .b{
     text-align: center;
+   margin-top: 4rem;
+}
+.a{
+     margin-top: 6rem;
 }
 .btn:hover {
     transform: translateY(-5px);
