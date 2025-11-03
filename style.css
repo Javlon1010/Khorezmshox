@@ -112,6 +112,11 @@ section {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
 }
+#tel{
+    font-size: 15px;
+    color: rgb(56, 52, 52);
+    font-weight: 700;
+}
 
 .btn-outline {
     background: transparent;
